@@ -1,10 +1,10 @@
 {
-  "application_id":7,
-  "session_id": "tt",
-  "message_id": "dsds",
+  "application_id":1,
+  "session_id": "tut",
+  "message_id": "ww",
   "participants": [
-    "Sara Shteren",
-    "Moshe Shteren"
+    "keren Menachem",
+    "Aviv "
   ],
-  "content": "Hi, we have birthday!"
+  "content": "we have funny names!"
 }

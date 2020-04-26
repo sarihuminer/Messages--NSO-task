@@ -9,6 +9,7 @@ def test_select_by_message_id():
     headers = {'content-type': 'application/json'}
     params = {'message_id': 's'}
     response = requests.post(App_URL, params=params, headers=headers)
+    assert 0
     print('\n {}'.format(response.text))
     assert isinstance(response, Message)
 
