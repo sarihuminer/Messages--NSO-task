@@ -77,8 +77,8 @@ def addMessage():
 def getMessage():
     x = 0
     conn = connect_to_database.create_connection(connect_to_database.database)
-    if (request.args.get("application_Id")):
-        x = connect_to_database.select_massages_by_applicationId(conn, request.args.get("application_Id"))
+    if (request.args.get("application_id")):
+        x = connect_to_database.select_massages_by_applicationId(conn, request.args.get("application_id"))
     else:
         if (request.args.get("session_id")):
             x = connect_to_database.select_massages_by_session_id(conn, request.args.get("session_id"))
@@ -91,13 +91,17 @@ def getMessage():
                 #          format(x.application_id, x.session_id, x.message_id, x.participants, x.content))
 
     conn.close()
+    print(x)
+    print(type(x))
     if type(x).__name__ == 'Message':
         x = jsonstring(x.__dict__)
     elif type(x).__name__ == 'list':
+        print('list', end='\n')
         str = ''
         for i in x:
             str += jsonstring(i.__dict__)
         x = str
+        print(str)
     return x, 200, get_headers()
 
 
