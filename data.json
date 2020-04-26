@@ -1,0 +1,10 @@
+{
+  "application_id":7,
+  "session_id": "tt",
+  "message_id": "ss",
+  "participants": [
+    "Sara Shteren",
+    "Moshe Shteren"
+  ],
+  "content": "Hi, we have birthday!"
+}
