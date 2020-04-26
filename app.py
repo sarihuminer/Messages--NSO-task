@@ -3,59 +3,12 @@ import json
 import message
 import connect_to_database
 from flask_cors import CORS
+from message import Message
 from flask import jsonify
+from json import dumps as jsonstring
 
 app = Flask(__name__)
 CORS(app)
-
-
-@app.route('/sari', methods=["GET", "POST"])
-def sari():
-    x = request.get_json(force=True)
-    x = json.loads(x)
-    c = x['application_id']
-    return ('ok', 200, get_headers())
-
-
-@app.route('/', methods=["GET", "POST"])
-def index():
-    if request.method == 'OPTIONS':
-        print('in options')
-        cors_enabled_function_auth(request)
-    print('index work')
-    return 'sari shteren', 200, get_headers()
-
-
-@app.route('/try')
-def tryit():
-    language = request.args.get('language')
-    framework = request.args['framework']
-    website = request.args.get('website')
-    return '''<h1>the language is {}</h1>'
-    <h1>the frame work is {}</h1>
-    <h1>the website is {}</h1>'''.format(language, framework, website)
-
-
-@app.route('/json_example', methods=["Post"])
-def jsonexample():
-    req_data = request.get_json()
-    # אם לא מופיע המילה
-    language = None
-    if 'language' in req_data:
-        language = req_data['language']
-    framework = req_data['framework']
-    python_vertion = req_data['vertion_info']['python']
-    example = req_data['examples'][0]
-    boolean_test = req_data['boolean_test']
-
-    return '''<h1>
-    the language value is{}.
-    the framework value is{}.
-    the python vertion is{}.
-    the example 0 is {}.
-    the boolean value is {}.
-    <h1>
-    '''.format(language, framework, python_vertion, example, boolean_test)
 
 
 @app.route('/deleteMessage', methods=["POST", "GET"])
@@ -70,6 +23,7 @@ def delete():
         else:
             if (request.args.get("message_id")):
                 x = connect_to_database.delete_massages_by_message_id(conn, request.args.get("message_id"))
+    conn.close()
     if ('Error' in x):
         print('error')
         return (x, 400, get_headers())
@@ -94,6 +48,7 @@ def addMessage_o():
     # create a database connection
     conn = connect_to_database.create_connection(connect_to_database.database)
     x = connect_to_database.create_message(conn, newMessage)
+    conn.close()
     print(x)
     if (isinstance(x, int) == True):
         return ('the new message added Successfully!!!', 200, get_headers())
@@ -109,6 +64,7 @@ def addMessage():
     # create a database connection
     conn = connect_to_database.create_connection(connect_to_database.database)
     x = connect_to_database.insert_new_message(conn, req_data)
+    conn.close()
     print(x)
     if (isinstance(x, int) == True):
         return ('the new message added Successfully!!!', 200, get_headers())
@@ -129,10 +85,19 @@ def getMessage():
         else:
             if (request.args.get("message_id")):
                 x = connect_to_database.select_massages_by_message_id(conn, request.args.get("message_id"))
+                # print('type: {} x: {}'.format(type(x), x))
+                # if (type(x).__name__ != 'str'):
+                #   return ('application_id:{} \n session_id:{} \n  message_id:{}  \n participants:{}  \n  content:{}'.
+                #          format(x.application_id, x.session_id, x.message_id, x.participants, x.content))
 
-                return ('application_id:{} \n session_id:{} \n  message_id:{}  \n participants:{}  \n  content:{}'.
-                        format(x.application_id, x.session_id, x.message_id, x.participants, x.content))
-
+    conn.close()
+    if type(x).__name__ == 'Message':
+        x = jsonstring(x.__dict__)
+    elif type(x).__name__ == 'list':
+        str = ''
+        for i in x:
+            str += jsonstring(i.__dict__)
+        x = str
     return x, 200, get_headers()
 
 
@@ -157,11 +122,4 @@ def get_headers():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
-
-# print('go to function addMassage')
-# with open('data.json') as config_file:
-#    data = json.loads(config_file.read())
-# print(data)
-# addMessage(data)
-# getMessage("application_id:1")
+    app.run(debug=False, port=5000)

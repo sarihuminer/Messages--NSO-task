@@ -2,42 +2,61 @@ import sqlite3
 from sqlite3 import Error
 import message
 import json
+import pathlib
 
-database = r"C:\Users\sari\Documents\year3\task nso\python flask\db\messages.db"
+path = pathlib.Path(__file__).parent.absolute()
+print('p ' + str(path))
+path = str(path) + r'\db\messages.db'
+database = str(path)
+print(database)
+
+'''
+    # create a new message
+    f = open('./data.json', 'r')
+    newMessage = f.read()
+
+    # create new message as json
+    print('################  insert_new_message ########################')
+    x = insert_new_message(conn, newMessage)
+    print_results(x)
+
+    # create new message as object
+    print('################  insert_new_message ########################')
+    x = create_message(conn, newMessage)
+    print_results(x)
+
+    # selected message by applicatin id
+    print('################  selected message by applicatin id ########################')
+    x = select_massages_by_applicationId(conn, 1)
+    print_results(x)
+'''
 
 
 def main():
-    database = r"C:\Users\sari\Documents\year3\task nso\python flask\db\messages.db"
-
     # create a database connection
     conn = create_connection(database)
-    x = select_massages_by_message_id(conn, 'ss')
-    print(x)
-    # if str(type(x).__name__) == 'Message':
-    #    print("application_id: {} message_id: {} session_id:{} participants:{} content:{} ".format(
-    #        x.application_id, x.message_id, x.session_id, json.dumps(x.participants), x.content))
-    # else:
-    #    for m in x:
-    #        print("application_id: {} message_id: {} session_id:{} participants:{} content:{} ".format(
-    #            m.application_id, m.message_id, m.session_id, json.dumps(m.participants), m.content), end='\n')
+    # selected message by session id
+    print('################  selected message by session id ########################')
+    x = select_massages_by_session_id(conn, "dd")
+    print_results(x)
 
-    # x = select_massages_by_applicationId(conn, "dd")
-    # x = select_massages_by_session_id(conn, "ff")
-    # print(x)
-    # select_massages_by_message_id(conn, "cc")
-    # select_massages_by_applicationId(conn, 1)
-    # with conn:
-    # create a new message
-    # newMessage = '{"application_id": 7,"session_id": "aaaa", "message_id": "bbbb","participants": ["avi aviv","moshe cohen"], "content": "Hi, how are you today?"}'
-    # data = json.loads(newMessage)
-    # application_id = data.get('application_id')
-    # session_id = data.get('session_id')
-    # message_id = data.get('message_id')
-    # participants = data.get('participants')
-    # participantss = json.dumps(participants)
-    # content = data.get('content')
-    # newMessage = message.Message(application_id, session_id, message_id, participantss, content)
-    # message_id = create_message(conn, newMessage)
+    # selected message by message id
+
+
+# print('################  selected message by message id ########################')
+# x = select_massages_by_message_id(conn, "ss")
+# print_results(x)
+
+
+def print_results(results):
+    if str(type(results).__name__) == 'Message':
+        print("application_id: {} message_id: {} session_id:{} participants:{} content:{} ".format(
+            results.application_id, results.message_id, results.session_id, json.dumps(results.participants),
+            results.content), end='/n')
+    else:
+        for m in results:
+            print("application_id: {} message_id: {} session_id:{} participants:{} content:{} ".format(
+                m.application_id, m.message_id, m.session_id, json.dumps(m.participants), m.content), end='\n')
 
 
 # create connection to db
@@ -74,12 +93,6 @@ def insert_new_message(conn, message):
 
 # insert new message as message object
 def create_message(conn, message):
-    """
-    Create a new project into the projects table
-    :param conn:
-    :param project:
-    :return: project id
-    """
     sql = ''' INSERT INTO messages(application_id,session_id,message_id,participants,content)
               VALUES(?,?,?,?,?) '''
     cur = conn.cursor()
@@ -95,12 +108,6 @@ def create_message(conn, message):
 
 
 def delete_massages_by_message_id(conn, id):
-    """
-    Delete a task by task id
-    :param conn:  Connection to the SQLite database
-    :param id: id of the task
-    :return:
-    """
     sql2 = 'DELETE FROM messages_tbl WHERE message_id=?'
     cur = conn.cursor()
     try:
@@ -115,12 +122,6 @@ def delete_massages_by_message_id(conn, id):
 
 
 def delete_message_by_applicationId(conn, id):
-    """
-    Delete a task by task id
-    :param conn:  Connection to the SQLite database
-    :param id: id of the task
-    :return:
-    """
     sql1 = 'select * from messages_tbl'
     sql2 = 'DELETE FROM messages_tbl WHERE message_id=?'
     cur = conn.cursor()
@@ -145,12 +146,6 @@ def delete_message_by_applicationId(conn, id):
 
 
 def delete_message_by_session_id(conn, id):
-    """
-    Delete a task by task id
-    :param conn:  Connection to the SQLite database
-    :param id: id of the task
-    :return:
-    """
     sql1 = 'select * from messages_tbl'
     sql2 = 'DELETE FROM messages_tbl WHERE message_id=?'
     cur = conn.cursor()
@@ -193,8 +188,8 @@ def select_massages_by_applicationId(conn, applicationId):
                                                   selectedData['content'])
 
                 messages.append(selectedMessage)
-        if not (cur.rowcount <= 0):
-            return selectedMessage
+        if len(data) > 0:
+            return messages
         return 'Error!!!!it did not in our data!!!!'
     except sqlite3.OperationalError as msg:
         return 'Error! could not faund the message!'
@@ -202,6 +197,7 @@ def select_massages_by_applicationId(conn, applicationId):
 
 def select_massages_by_session_id(conn, session_id):
     # Select those values, get them to be json
+    print('coming ssesion')
     cur = conn.cursor()
     a = str(session_id)
     try:
@@ -217,10 +213,9 @@ def select_massages_by_session_id(conn, session_id):
                 selectedMessage = message.Message(selectedData['application_id'], selectedData['session_id'],
                                                   selectedData['message_id'], selectedData['participants'],
                                                   selectedData['content'])
-
                 messages.append(selectedMessage)
-        if not (cur.rowcount <= 0):
-            return selectedMessage
+        if len(messages) > 0:
+            return messages
         return 'Error!!!!it did not in our data!!!!'
     except sqlite3.OperationalError as msg:
         return 'Error! could not faund the message!'
@@ -230,8 +225,12 @@ def select_massages_by_message_id(conn, message_id):
     # Select those values, get them to be json
     cur = conn.cursor()
     try:
-        x = cur.execute('select * from messages_tbl where message_id=?', str(message_id), )
+        x = cur.execute('select * from messages_tbl where message_id=?', (str(message_id),))
+        # print(x.fetchall())
+        # print(cur.rowcount)
         data = x.fetchall()
+        if len(data) == 0:
+            return 'Error!!!!it did not in our data!!!!'
         data = json.loads(data[0][1])
         selectedMessage = message.Message(data['application_id'], data['session_id'],
                                           data['message_id'], data['participants'], data['content'])
@@ -240,27 +239,10 @@ def select_massages_by_message_id(conn, message_id):
               'content:{}\n'.format(selectedMessage.application_id, selectedMessage.session_id
                                     , selectedMessage.message_id, selectedMessage.participants,
                                     selectedMessage.content))
-        if not (cur.rowcount <= 0):
-            return message.Message(selectedMessage)
-        return 'Error!!!!it did not in our data!!!!'
+
+        return selectedMessage
     except sqlite3.OperationalError as msg:
         return 'Error! could not faund the message!'
-
-
-def select_task_by_priority(conn, priority):
-    """
-    Query tasks by priority
-    :param conn: the Connection object
-    :param priority:
-    :return:
-    """
-    cur = conn.cursor()
-    cur.execute("SELECT * FROM tasks WHERE priority=?", (priority,))
-
-    rows = cur.fetchall()
-
-    for row in rows:
-        print(row)
 
 
 if __name__ == '__main__':
