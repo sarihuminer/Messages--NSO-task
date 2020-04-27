@@ -1,8 +1,11 @@
+import sys
 import requests
 import pytest
+import pathlib
+import json
 
-
-# from message import Message
+path = pathlib.Path(__file__).parent.absolute()
+sys.path.append(path)
 
 
 @pytest.mark.message_id
@@ -11,38 +14,50 @@ def test_select_by_message_id():
     headers = {'content-type': 'application/json'}
     params = {'message_id': 'sari'}
     response = requests.post(App_URL, params=params, headers=headers)
-    # assert 0
+    data = response.json()
     assert not 'Error' in response.text
     print('\n {}'.format(response.text))
-    # assert isinstance(response, Message)
+    assert data['message_id'] == 'sari'
 
 
 @pytest.mark.application_id
 def test_select_message_by_application_id():
     App_URL = "http://127.0.0.1:5000/getMessage"
     headers = {'content-type': 'application/json'}
-    params = {'application_id': 8}
+    params = {'application_id': 9}
     response = requests.post(App_URL, params=params, headers=headers)
-    # assert 0
-    assert not 'Error' in response.text
-    print('\n {}'.format(response.text))
-    # print('type {} '.format(type(response).__name__))
-    # for i in response:
-    #    print('\n {}'.format(i))
-    # assert isinstance(i, Message)
-
-
-#       print('\n {}'.format(i.text))
+    if type(response.text).__name__ == 'str':
+        assert not 'Error' in response.text
+        print('\n {}'.format(response.text))
+    else:
+        data = response.text.split("}{")
+        for i in data:
+            if i[len(i) - 1] != "}":
+                i = i + "}"
+            elif i[0] != "{":
+                i = '{' + i
+                i = json.loads(i)
+                print('\n {}'.format(i))
+                assert int(i['application_id']) == 9
 
 
 @pytest.mark.session_id
 def test_selecte_message_by_session_id():
     App_URL = "http://127.0.0.1:5000/getMessage"
     headers = {'content-type': 'application/json'}
-    params = {'session_id': 'yul'}
+    params = {'session_id': 'qe'}
     response = requests.post(App_URL, params=params, headers=headers)
-    assert not 'Error' in response.text
-    print('\n {}'.format(response.text))
-    # for i in response:
-    # assert isinstance(i, Message)
-    # print('\n {}'.format(i.))
+    if type(response.text).__name__ == 'str':
+        assert not 'Error' in response.text
+        print('\n {}'.format(response.text))
+    else:
+        data = response.text.split("}{")
+        for i in data:
+            if i[len(i) - 1] != "}":
+                i = i + "}"
+            elif i[0] != "{":
+                i = '{' + i
+                i = json.loads(i)
+                print('\n {}'.format(i))
+                assert str(i['session_id']) == 'qe'
+

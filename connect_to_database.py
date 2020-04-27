@@ -4,48 +4,54 @@ import message
 import json
 import pathlib
 
+# when runnig Terminal ,he would know where is the db
 path = pathlib.Path(__file__).parent.absolute()
 print('p ' + str(path))
 path = str(path) + r'\db\messages.db'
 database = str(path)
 print(database)
 
-'''
-    # create a new message
-    f = open('./data.json', 'r')
-    newMessage = f.read()
 
+# when i check my code by self,before pytest
+def main():
+    # create a database connection
+    conn = create_connection(database)
+
+    # create a new message
+    req_data1 = open('./data.json', 'r')
+    req_data1 = req_data1.read()
+    print(req_data1)
+    req_data = json.loads(req_data1)
+    application_id = req_data['application_id']
+    session_id = req_data['session_id']
+    message_id = req_data['message_id']
+    participants = req_data['participants']
+    participantss = json.dumps(req_data['participants'])
+    content = req_data['content']
+    newMessage = message.Message(application_id, session_id, message_id, participantss, content)
     # create new message as json
     print('################  insert_new_message ########################')
-    x = insert_new_message(conn, newMessage)
-    print_results(x)
+    x = insert_new_message(conn, req_data)
+    print(x)
 
     # create new message as object
     print('################  insert_new_message ########################')
     x = create_message(conn, newMessage)
-    print_results(x)
+    print(x)
 
     # selected message by applicatin id
-    print('################  selected message by applicatin id ########################')
-    x = select_massages_by_applicationId(conn, 1)
+    print('################  selected message by application id ########################')
+    x = select_massages_by_applicationId(conn, 5)
     print_results(x)
-'''
-
-
-def main():
-    # create a database connection
-    conn = create_connection(database)
     # selected message by session id
     print('################  selected message by session id ########################')
     x = select_massages_by_session_id(conn, "dd")
     print_results(x)
 
     # selected message by message id
-
-
-# print('################  selected message by message id ########################')
-# x = select_massages_by_message_id(conn, "ss")
-# print_results(x)
+    print('################  selected message by message id ########################')
+    x = select_massages_by_message_id(conn, "y")
+    print_results(x)
 
 
 def print_results(results):
@@ -188,7 +194,7 @@ def select_massages_by_applicationId(conn, applicationId):
                                                   selectedData['content'])
 
                 messages.append(selectedMessage)
-        if len(data) > 0:
+        if len(messages) > 0:
             return messages
         return 'Error!!!!it did not in our data!!!!'
     except sqlite3.OperationalError as msg:

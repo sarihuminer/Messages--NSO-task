@@ -3,14 +3,12 @@ import json
 import message
 import connect_to_database
 from flask_cors import CORS
-from message import Message
-from flask import jsonify
 from json import dumps as jsonstring
 
 app = Flask(__name__)
 CORS(app)
 
-
+#delete message
 @app.route('/deleteMessage', methods=["POST", "GET"])
 def delete():
     x = ''
@@ -85,10 +83,6 @@ def getMessage():
         else:
             if (request.args.get("message_id")):
                 x = connect_to_database.select_massages_by_message_id(conn, request.args.get("message_id"))
-                # print('type: {} x: {}'.format(type(x), x))
-                # if (type(x).__name__ != 'str'):
-                #   return ('application_id:{} \n session_id:{} \n  message_id:{}  \n participants:{}  \n  content:{}'.
-                #          format(x.application_id, x.session_id, x.message_id, x.participants, x.content))
 
     conn.close()
     print(x)
