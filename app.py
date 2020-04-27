@@ -4,11 +4,13 @@ import message
 import connect_to_database
 from flask_cors import CORS
 from json import dumps as jsonstring
+from flask import jsonify
 
 app = Flask(__name__)
 CORS(app)
 
-#delete message
+
+# delete message
 @app.route('/deleteMessage', methods=["POST", "GET"])
 def delete():
     x = ''
@@ -91,11 +93,17 @@ def getMessage():
         x = jsonstring(x.__dict__)
     elif type(x).__name__ == 'list':
         print('list', end='\n')
-        str = ''
+        str = []
         for i in x:
-            str += jsonstring(i.__dict__)
-        x = str
+            str.append(jsonstring(i.__dict__))
         print(str)
+        # str = ''
+        # for i in x:
+        #    str += jsonstring(i.__dict__)
+        # x = str
+        # print(str)
+
+        return jsonify(str), 200, get_headers()
     return x, 200, get_headers()
 
 

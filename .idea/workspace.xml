@@ -16,16 +16,15 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="59" selection-start-line="59" selection-end-line="59" />
+            <state relative-caret-position="131">
+              <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
-                <element signature="e#329#1067#0" />
-                <element signature="e#1240#2059#0" />
-                <element signature="e#2218#2649#0" />
-                <element signature="e#2739#3983#0" />
-                <element signature="e#4031#4385#0" />
-                <element signature="e#4411#4542#0" />
+                <element signature="e#274#1012#0" />
+                <element signature="e#1185#2004#0" />
+                <element signature="e#2163#2594#0" />
+                <element signature="e#3637#3991#0" />
+                <element signature="e#4017#4148#0" />
               </folding>
             </state>
           </provider>
@@ -34,8 +33,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testCases/test_delete_messages.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="418">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -46,12 +45,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/testCases/test_select_message.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="36" column="29" lean-forward="true" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+            <state relative-caret-position="254">
+              <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
-                <element signature="e#193#553#0" />
-                <element signature="e#1476#2141#0" />
               </folding>
             </state>
           </provider>
@@ -70,7 +67,7 @@
         <entry file="file://$PROJECT_DIR$/data.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="154">
-              <caret line="7" column="4" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -78,21 +75,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/connect_to_database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+            <state relative-caret-position="23">
+              <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
-                <element signature="e#348#1447#0" />
-                <element signature="e#1894#2440#0" />
-                <element signature="e#1996#2283#0" />
-                <element signature="e#2350#2738#0" />
-                <element signature="e#2819#3322#0" />
-                <element signature="e#3374#3783#0" />
-                <element signature="e#3837#4638#0" />
-                <element signature="e#4689#5486#0" />
-                <element signature="e#5552#6552#0" />
-                <element signature="e#6612#7633#0" />
-                <element signature="e#7693#8745#0" />
               </folding>
             </state>
           </provider>
@@ -101,8 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/create db.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="43" column="10" lean-forward="true" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
+            <state relative-caret-position="902">
+              <caret line="43" column="10" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -113,7 +99,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/codecs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
+            <state relative-caret-position="7084">
               <caret line="323" selection-start-line="323" selection-end-line="323" />
             </state>
           </provider>
@@ -140,8 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>delete_massages</find>
-      <find>delete_message_by</find>
       <find>x = cur.execute(sql1, (str(id),))</find>
       <find>delete_mes</find>
       <find>application_Id</find>
@@ -166,10 +150,12 @@
       <find>__name__</find>
       <find>rowcount</find>
       <find>select</find>
-      <find>print</find>
       <find>select_massages_by_session_id</find>
       <find>dict</find>
       <find>create_message</find>
+      <find>print</find>
+      <find>assert 0</find>
+      <find>json.loads</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -189,11 +175,11 @@
         <option value="$PROJECT_DIR$/tetsCases/test_select_message.py" />
         <option value="$PROJECT_DIR$/testCases/test_add_message.py" />
         <option value="$PROJECT_DIR$/test_add_message.py" />
-        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/connect_to_database.py" />
         <option value="$PROJECT_DIR$/create db.py" />
         <option value="$PROJECT_DIR$/data.json" />
         <option value="$PROJECT_DIR$/testCases/test_delete_messages.py" />
+        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/testCases/test_select_message.py" />
       </list>
     </option>
@@ -208,7 +194,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -225,6 +210,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -359,9 +345,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.app" />
+        <item itemvalue="Python.test_select_message" />
         <item itemvalue="Python.connect_to_database" />
         <item itemvalue="Python.save message as json" />
-        <item itemvalue="Python.test_select_message" />
         <item itemvalue="Python.test_delete_messages" />
       </list>
     </recent_temporary>
@@ -397,13 +383,13 @@
       <window_info id="Favorites" order="2" sideWeight="0.50476193" side_tool="true" weight="0.18229167" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4985119" weight="0.48281506" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4985119" weight="0.4811784" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.47463176" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.4985119" visible="true" weight="0.39443535" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4985119" weight="0.86906713" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5014881" side_tool="true" weight="0.46481177" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49925596" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -442,6 +428,11 @@
           <url>file://$PROJECT_DIR$/save message as json.py</url>
           <line>18</line>
           <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/testCases/test_select_message.py</url>
+          <line>11</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -547,93 +538,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/codecs.py">
+    <entry file="file://$PROJECT_DIR$/post try.py" />
+    <entry file="file://$PROJECT_DIR$/try.py" />
+    <entry file="file://$PROJECT_DIR$/testCases/test_delete_messages.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="323" selection-start-line="323" selection-end-line="323" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/connect_to_database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-            <element signature="e#348#1447#0" />
-            <element signature="e#1894#2440#0" />
-            <element signature="e#1996#2283#0" />
-            <element signature="e#2350#2738#0" />
-            <element signature="e#2819#3322#0" />
-            <element signature="e#3374#3783#0" />
-            <element signature="e#3837#4638#0" />
-            <element signature="e#4689#5486#0" />
-            <element signature="e#5552#6552#0" />
-            <element signature="e#6612#7633#0" />
-            <element signature="e#7693#8745#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/create db.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="43" column="10" lean-forward="true" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/post try.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        <state relative-caret-position="418">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/try.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="144" column="14" lean-forward="true" selection-start-line="144" selection-start-column="14" selection-end-line="144" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-            <element signature="e#168#797#0" />
-            <element signature="e#1272#1559#0" />
-            <element signature="e#1601#2235#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/message.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="4" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-            <element signature="e#329#1067#0" />
-            <element signature="e#1240#2059#0" />
-            <element signature="e#2218#2649#0" />
-            <element signature="e#2739#3983#0" />
-            <element signature="e#4031#4385#0" />
-            <element signature="e#4411#4542#0" />
           </folding>
         </state>
       </provider>
@@ -645,24 +557,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testCases/test_delete_messages.py">
+    <entry file="file://$PROJECT_DIR$/data.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="154">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/create db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="902">
+          <caret line="43" column="10" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7084">
+          <caret line="323" selection-start-line="323" selection-end-line="323" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/message.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/connect_to_database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#274#1012#0" />
+            <element signature="e#1185#2004#0" />
+            <element signature="e#2163#2594#0" />
+            <element signature="e#3637#3991#0" />
+            <element signature="e#4017#4148#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testCases/test_select_message.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="36" column="29" lean-forward="true" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+        <state relative-caret-position="254">
+          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#193#553#0" />
-            <element signature="e#1476#2141#0" />
           </folding>
         </state>
       </provider>
