@@ -1,10 +1,10 @@
 {
-  "application_id":4,
-  "session_id": "day",
-  "message_id": "menachem",
+  "application_id":11,
+  "session_id": "gf",
+  "message_id": "sarimush",
   "participants": [
-    "Sunday",
-    "Friday"
+    "ow",
+    "paybal"
   ],
-  "content": "have a good day menachem!"
+  "content": "have a good week!"
 }

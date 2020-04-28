@@ -91,20 +91,16 @@ def getMessage():
     print(type(x))
     if type(x).__name__ == 'Message':
         x = jsonstring(x.__dict__)
+        return x, 200, get_headers()
     elif type(x).__name__ == 'list':
         print('list', end='\n')
         str = []
         for i in x:
             str.append(jsonstring(i.__dict__))
         print(str)
-        # str = ''
-        # for i in x:
-        #    str += jsonstring(i.__dict__)
-        # x = str
-        # print(str)
-
         return jsonify(str), 200, get_headers()
-    return x, 200, get_headers()
+    elif type(x).__name__ == 'str':
+        return x, 400, get_headers()
 
 
 def cors_enabled_function_auth(request):

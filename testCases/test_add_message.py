@@ -7,7 +7,7 @@ def test_add_NewMassage():
     headers = {'content-type': 'application/json'}
     response = requests.post(App_URL, request_json, headers=headers)
     print('\n {}'.format(response.text))
-    assert not 'Error' in response.text
+    assert response.status_code == 200
 
 def test_add_NewMassage_o():
     App_URL = "http://127.0.0.1:5000/addMessage_o"
@@ -16,4 +16,4 @@ def test_add_NewMassage_o():
     headers = {'content-type': 'application/json'}
     response = requests.post(App_URL, request_json, headers=headers)
     print('\n {}'.format(response.text))
-    assert not 'Error' in response.text
+    assert response.status_code == 200

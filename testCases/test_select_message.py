@@ -16,8 +16,8 @@ def test_select_by_message_id():
     params = {'message_id': 'sari'}
     response = requests.post(App_URL, params=params, headers=headers)
     data = response.json()
-    assert not 'Error' in response.text
     print_message(data)
+    assert response.status_code == 200
     assert data['message_id'] == 'sari'
 
 
@@ -27,14 +27,14 @@ def test_select_message_by_application_id():
     headers = {'content-type': 'application/json'}
     params = {'application_id': 9}
     response = requests.post(App_URL, params=params, headers=headers)
-    if type(response.text).__name__ == 'str' and not '{' in response.text:
-        assert not 'Error' in response.text
+    if response.status_code == 400:
         print('\n {}'.format(response.text))
     else:
-        response = json.loads(response.text)
-        for message in response:
+        messages_response = json.loads(response.text)
+        for message in messages_response:
             m = json.loads(message)
             print_message(m)
+    assert response.status_code == 200
     assert int(m['application_id']) == 9
 
 
@@ -44,14 +44,14 @@ def test_selecte_message_by_session_id():
     headers = {'content-type': 'application/json'}
     params = {'session_id': 'qe'}
     response = requests.post(App_URL, params=params, headers=headers)
-    if type(response.text).__name__ == 'str' and not '{' in response.text:
-        assert not 'Error' in response.text
+    if response.status_code == 400:
         print('\n {}'.format(response.text))
     else:
-        response = json.loads(response.text)
-        for message in response:
+        messages_response = json.loads(response.text)
+        for message in messages_response:
             m = json.loads(message)
             print_message(m)
+    assert response.status_code == 200
     assert str(m['session_id']) == 'qe'
 
 

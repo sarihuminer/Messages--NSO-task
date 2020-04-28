@@ -8,7 +8,7 @@ def test_delete_message_by_message_id():
     params = {'message_id': 'eyyyyy'}
     response = requests.post(App_URL, params=params, headers=headers)
     print('\n {}'.format(response.text))
-    assert not 'Error' in response.text
+    assert response.status_code == 200
 
 @pytest.mark.application_id
 def test_delete_message_by_application_id():
@@ -17,7 +17,7 @@ def test_delete_message_by_application_id():
     params = {'application_Id': 4}
     response = requests.post(App_URL, params=params, headers=headers)
     print('\n {}'.format(response.text))
-    assert not 'Error' in response.text
+    assert response.status_code == 200
 
 @pytest.mark.session_id
 def test_delete_message_by_session_id():
@@ -26,4 +26,4 @@ def test_delete_message_by_session_id():
     params = {'session_id': 'day'}
     response = requests.post(App_URL, params=params, headers=headers)
     print('\n {}'.format(response.text))
-    assert not 'Error' in response.text
+    assert response.status_code == 200
