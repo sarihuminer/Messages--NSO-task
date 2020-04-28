@@ -8,7 +8,7 @@ First:
 Install libraries from requirements.txt file in another environment.
 
 For example:
-    env2/bin/pip install -r requirements.txt
+    env3/bin/pip install -r requirements.txt
 
   1. you need to have python vertion 3.7.4 or more.
   2. and all the libraries I used (by installing requirements.txt).
