@@ -5,6 +5,11 @@ created by Sara Shteren
 if you want to run my_project:
 
 first:
+Generate a requirements file and then install from it in another environment.
+
+$ env1/bin/pip freeze > requirements.txt
+$ env2/bin/pip install -r requirements.txt
+
   1. you need to have python vertion 3.7.4.
   2. and all the libraries I used.
   3. my data saved in sqlite -install it.
