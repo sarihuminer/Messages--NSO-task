@@ -10,19 +10,19 @@ Install libraries from requirements.txt file in another environment.
 For example:
     env3\Scripts\pip install -r requirements.txt
 
-  1. you need to have python vertion 3.7.4 or more.
+  1. You need Python version 3.7.4 or more.
   2. and all the libraries I used (by installing requirements.txt).
-  3. my data saved in sqlite so
-     if you want to see my data you need to install sqliteStudio or anything else.
+  3. My data is saved in SQLite so
+     if you want to see my data you need to install SQLiteStudio or anything else.
 
 Second:
     How to run my project:
     Run from testCases folder the test plan using pytest.
-    Notice! The functions used @pytest.mark, So you can choice which function you want to run.
-    Every action of function have a single page, For example: to test add_function use test_add_message.py
+    Notice! The functions used @pytest.mark, So you can choose which function you want to run.
+    Each action of a function has a single page, For example: In order to test add_function use test_add_message.py
     
     Important!!
-    If you want to add a new data to sqlite,
+    If you want to add a new data to SQLite,
     You need to open data.json and change there it's values.
     
     ####################################################################
@@ -30,11 +30,11 @@ Second:
     So what is my files?
         
         1. Db folder
-            It has my database- I used sqlite
+            It has my database- I used SQLite 
             The name of the database is: messages.db
         
         2. TestCases folder
-            -It has is 3 files:
+            -It has 3 files:
             Test_add_message.py- to test adding new message function
             Test_delete_message.py- to test deleting message function
             Test_select_message.py- to test selecting message function
@@ -46,11 +46,11 @@ Second:
                     Tt's route: 'http://127.0.0.1:5000/deleteMessage'
                 
                 2. AddMessage_o()- Create a new message.
-                      Keep data to sqlite as Message object
+                      Keep data to SQLite as Message object
                     It's route:  'http://127.0.0.1:5000/addMessage_o'
                  
                 3. AddMessage()-Create a new message.
-                      Keep  data to sqlite as json
+                      Keep  data to SQLite as json
                       It's route: 'http://127.0.0.1:5000/addMessage'  
                   
                 4. GetMessage()- get message by 3 parameters:
@@ -75,11 +75,9 @@ Second:
        
         6. Data.json -if you run test plan of add message ,the values will taken from here.
         
-        7. Messages.py -Message class ,in order to use oop.
+        7. Messages.py -Message class ,in order to use OOP.
         
-        8.Sava messages as json.py - If you want to add message to table without test plan.
+        8.Save messages as json.py - If you want to add message to table without test plan.
                                      Before you use it, change the values in data.json.
                                         
         
-        
-    
